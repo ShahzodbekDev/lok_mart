@@ -3,4 +3,20 @@
     <string name="connection_error">Connection erorr</string>
     <string name="erorr">An erorr accurred</string>
     <string name="invalid_credentials">Invalid Credentials</string>
+    <string name="fragment_onboarding_next">Next</string>
+    <string name="onboarding_title_0">Welcome to LokMart! \n Grocery Applications</string>
+    <string name="onboarding_description_0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</string>
+    <string name="onboarding_title_1">Best Quality and \n Fast Delivery!</string>
+    <string name="onboarding_description_1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</string>
+    <string name="fragment_onboarding_get_started">Get Started</string>
+    <string name="fragment_sign_in_sign_up">Sign Up</string>
+    <string name="fragment_sign_in_no_account">Don’t have an account?</string>
+    <string name="fragment_sign_in_forgot_password"><u>Forgot Password?</u></string>
+    <string name="fragment_sing_in">Sign In</string>
+    <string name="fragment_sign_in_password">Password</string>
+    <string name="fragment_sign_in_username">Username</string>
+    <string name="fragment_sign_in_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</string>
+    <string name="fragment_sign_in_title">Welcome back</string>
+    <string name="app_description">Grocery App</string>
+
 </resources>
