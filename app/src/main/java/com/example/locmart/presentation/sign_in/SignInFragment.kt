@@ -1,16 +1,16 @@
 package com.example.locmart.presentation.sign_in
 
 import android.os.Bundle
-import android.os.Message
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.locmart.R
 import com.example.locmart.databinding.FragmentSignInBinding
+import com.example.locmart.util.toast
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -60,9 +60,9 @@ class SignInFragment :Fragment() {
             val password = binding.password.text.toString()
             viewModel.signIn(username, password)
         }
+        signUp.setOnClickListener {
+            findNavController().navigate(SignInFragmentDirections.toSignUpFragment())
+        }
     }
 
-    private fun toast(message:Int){
-        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
-    }
 }
