@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">LocMart</string>
+    <string name="app_name">LoKMart</string>
     <string name="connection_error">Connection erorr</string>
     <string name="erorr">An erorr accurred</string>
     <string name="invalid_credentials">Invalid Credentials</string>
@@ -12,7 +12,7 @@
     <string name="fragment_sign_in_sign_up">Sign Up</string>
     <string name="fragment_sign_in_no_account">Don’t have an account?</string>
     <string name="fragment_sign_in_forgot_password"><u>Forgot Password?</u></string>
-    <string name="fragment_sing_in">Sign In</string>
+    <string name="fragment_sing_in_button">Sign In</string>
     <string name="fragment_sign_in_password">Password</string>
     <string name="fragment_sign_in_username">Username</string>
     <string name="fragment_sign_in_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</string>

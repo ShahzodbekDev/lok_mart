@@ -40,6 +40,8 @@ class SignInFragment :Fragment() {
         viewModel.loading.observe(viewLifecycleOwner){ isLoading ->
 
             progress.isVisible = isLoading
+            signIn.text = if (isLoading) null else getString(R.string.fragment_sing_in_button)
+
 
         }
         viewModel.events.observe(viewLifecycleOwner){event ->
@@ -47,6 +49,7 @@ class SignInFragment :Fragment() {
                 SignInViewModel.Event.ConnectionErorr -> toast(R.string.connection_error)
                 SignInViewModel.Event.Erorr -> toast(R.string.erorr)
                 SignInViewModel.Event.InvalidCredentials -> toast(R.string.invalid_credentials)
+                SignInViewModel.Event.NavigateToHome -> toast(R.string.app_name)
             }
         }
     }
