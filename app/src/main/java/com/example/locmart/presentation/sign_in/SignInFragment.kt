@@ -1,5 +1,6 @@
 package com.example.locmart.presentation.sign_in
 
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -23,7 +24,7 @@ class SignInFragment :Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentSignInBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -36,6 +37,10 @@ class SignInFragment :Fragment() {
 
     }
 
+    override fun onPause() {
+        super.onPause()
+        activity?.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
+    }
     private fun subscribeToLiveData() = with(binding) {
         viewModel.loading.observe(viewLifecycleOwner){ isLoading ->
 

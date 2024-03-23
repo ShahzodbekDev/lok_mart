@@ -8,28 +8,6 @@ import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
-
-class TokenStore @Inject constructor(private val dataStore: DataStore<Preferences>) {
-
-    private val key = stringPreferencesKey("token")
-
-    suspend fun set(value : String) {
-        dataStore.edit {
-            it[key] = value
-
-        }
-    }
-
-    suspend fun get() = dataStore.data.map { it[key] }.firstOrNull()
+class TokenStore @Inject constructor() : BaseStore<String>("token", String::class.java)
 
 
-    suspend fun claer(){
-        dataStore.edit {
-            it.remove(key)
-        }
-    }
-
-
-
-
- }

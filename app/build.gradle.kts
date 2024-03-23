@@ -30,6 +30,11 @@ android {
                 "proguard-rules.pro"
             )
         }
+        getByName("debug") {
+            vcsInfo {
+                include = true
+            }
+        }
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8

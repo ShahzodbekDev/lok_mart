@@ -21,9 +21,12 @@
     <string name="fragment_sign_up_title">Create your account</string>
     <string name="fragment_sign_up_email">Email</string>
     <string name="fragment_sign_up_register">Register</string>
-    <string name="fragment_sign_up_terms">By tapping “Sign Up” you accept our terms and condition</string>
+    <string name="fragment_sign_up_terms_and_privacy">By tapping “Register” you accept our %s and %s</string>
+    <string name="terms_of_use">terms of use</string>
+    <string name="privacy_policy">privacy policy</string>
     <string name="fragment_sign_up_have_account">Already have account?</string>
     <string name="fragment_sign_up_sign_in">Sign in</string>
     <string name="already_registered">This email is already registered</string>
+
 
 </resources>

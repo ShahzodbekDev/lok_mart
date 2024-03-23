@@ -6,21 +6,25 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.example.locmart.R
 import com.example.locmart.databinding.FragmentOnboardingBinding
 import com.zhpan.indicator.enums.IndicatorSlideMode
 import com.zhpan.indicator.enums.IndicatorStyle
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class onBoardingFragment: Fragment() {
 
     private lateinit var binding: FragmentOnboardingBinding
+    private val viewModel by viewModels<OnboardingViewModel>()
     private val adapter = OnBoardingAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentOnboardingBinding.inflate(inflater)
         return binding.root
     }
@@ -42,7 +46,7 @@ class onBoardingFragment: Fragment() {
             setSliderWidth(resources.getDimension(R.dimen.dp_15))
             setSliderHeight(resources.getDimension(R.dimen.dp_8))
             setSlideMode(IndicatorSlideMode.WORM)
-            setIndicatorStyle(IndicatorStyle.CIRCLE)
+            setIndicatorStyle(IndicatorStyle.ROUND_RECT)
             setPageSize(adapter.itemCount)
             notifyDataChanged()
         }
@@ -67,7 +71,7 @@ class onBoardingFragment: Fragment() {
 
         next.setOnClickListener {
             if(pager.currentItem == adapter.itemCount-1){
-
+                viewModel.onboarded()
                 findNavController().navigate(onBoardingFragmentDirections.toSignInFragment())
 
             }else{
