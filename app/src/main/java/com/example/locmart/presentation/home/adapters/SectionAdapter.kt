@@ -45,6 +45,7 @@ class SectionAdapter(
 
         val inflater = LayoutInflater.from(parent.context)
         return when (SectionType.values()[viewType]) {
+
             SectionType.horizontal -> HarizontalHolder(
                 ItemSectionsHorizontalBinding.inflate(
                     inflater,
@@ -76,9 +77,9 @@ class SectionAdapter(
     override fun getItemViewType(position: Int) = sections[position].type.ordinal
 
 
-    companion object {
-        private const val HORIZONTAL = 0
-        private const val VERTICAL = 1
-    }
+//    companion object {
+//        private const val HORIZONTAL = 0
+//        private const val VERTICAL = 1
+//    }
 
 }

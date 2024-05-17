@@ -18,7 +18,7 @@ class HomeCategoryAdapter(
 
             Glide.with(root).load(category.image).into(image)
             name.text = category.title
-            items.text = root.context.getString(R.string.items_category_count, category.count)
+           items.text = root.context.getString(R.string.items_category_count, category.count)
 
         }
     }

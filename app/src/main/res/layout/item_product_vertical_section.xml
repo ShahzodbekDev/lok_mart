@@ -21,7 +21,7 @@
             android:id="@+id/image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="fitXY"
+            android:scaleType="centerCrop"
             tools:src="@tools:sample/backgrounds/scenic" />
     </com.google.android.material.card.MaterialCardView>
 
@@ -82,7 +82,7 @@
         android:paddingEnd="11dp"
         android:paddingBottom="3dp"
         android:textColor="@color/dark"
-        android:textSize="10sp"
+        android:textSize="11sp"
         app:drawableStartCompat="@drawable/ic_star"
         app:layout_constraintStart_toStartOf="@id/name"
         app:layout_constraintTop_toBottomOf="@id/name"
@@ -149,7 +149,7 @@
         android:layout_marginTop="9dp"
         android:textColor="@color/soft_gray"
         android:fontFamily="@font/medium"
-        android:textSize="12dp"
+        android:textSize="12sp"
 
         />
 

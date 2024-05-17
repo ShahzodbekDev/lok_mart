@@ -31,14 +31,13 @@
     <string name="fragment_home_good_morning">Good morning.</string>
     <string name="fragment_home_categories">Categories</string>
     <string name="show_all">Show all</string>
-    <string name="item_product_ratings_count">%f Ratings</string>
-    <string name="fragment_item_product_discount">%f% OFF</string>
+    <string name="item_product_ratings_count">%d Ratings</string>
+    <string name="fragment_item_product_discount">%d%% OFF</string>
     <string name="erorr_loading">Erorr loading...</string>
     <string name="retry">Retry</string>
     <string name="fragment_home_greeting">Hello, %s</string>
-    <string name="items_category_count">%f items</string>
+    <string name="items_category_count">%d items</string>
     <string name="price">$%.1f</string>
     <string name="price_striked"><strike>$%.1f</strike></string>
-
 
 </resources>

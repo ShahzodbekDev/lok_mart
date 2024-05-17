@@ -20,7 +20,7 @@
             android:id="@+id/image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="fitXY"
+            android:scaleType="centerCrop"
             tools:src="@tools:sample/backgrounds/scenic" />
     </com.google.android.material.card.MaterialCardView>
 
@@ -40,7 +40,7 @@
         android:id="@+id/discount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="@string/fragment_item_product_discount"
+
         android:textColor="@color/white"
         android:textSize="12sp"
         android:fontFamily="@font/medium"
@@ -51,7 +51,8 @@
         app:layout_constraintTop_toTopOf="@id/imageLayout"
         app:layout_constraintStart_toStartOf="@id/imageLayout"
         android:layout_marginTop="17dp"
-        android:layout_marginStart="21dp"/>
+        android:layout_marginStart="21dp"
+        tools:text="@string/fragment_item_product_discount"/>
 
     <TextView
         android:id="@+id/name"
@@ -107,7 +108,10 @@
         android:layout_marginEnd="8dp"
         app:layout_constraintBaseline_toBaselineOf="@id/rating"
         app:layout_constraintEnd_toStartOf="@id/price"
-        tools:text="@string/price_striked" />
+        tools:text="@string/price_striked"/>
+
+
+
 
     <TextView
         android:id="@+id/price"

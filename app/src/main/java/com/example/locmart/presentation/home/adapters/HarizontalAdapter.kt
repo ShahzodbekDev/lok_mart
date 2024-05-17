@@ -22,10 +22,10 @@ class HarizontalAdapter(
         fun bind(product: Product) = with(binding) {
             Glide.with(root).load(product.image).into(image)
             discount.isVisible = product.discount != null
+
             product.discount?.let {
-                val discount = (product.discount / product.price * 100).roundToInt()
-                binding.discount.text =
-                    root.context.getString(R.string.fragment_item_product_discount, discount)
+                val discount = ((product.discount / product.price) * 100).roundToInt()
+                binding.discount.text = root.context.getString(R.string.fragment_item_product_discount, discount)
             }
 
 
@@ -35,12 +35,12 @@ class HarizontalAdapter(
 
             rating.text = String.format("%.1f", product.rating)
 
-            ratingCaunt.text =
+          ratingCaunt.text =
                 root.context.getString(R.string.item_product_ratings_count, product.ratingCount)
 
             val current = product.price - (product.discount ?: 0.0)
-            price.text = root.context.getString(R.string.price, current)
-            old.text = root.context.getString(R.string.price_striked, product.price)
+           price.text = root.context.getString(R.string.price, current)
+           old.text = root.context.getString(R.string.price_striked, product.price)
             old.isVisible = product.discount != null
 
             root.setOnClickListener {
@@ -62,6 +62,7 @@ class HarizontalAdapter(
 
         }
     }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder(
         ItemProductHorizontalSectionBinding.inflate(
