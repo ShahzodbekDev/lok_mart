@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">LoKMart</string>
+    <string name="app_name">LocMart</string>
     <string name="connection_error">Connection erorr</string>
     <string name="erorr">An erorr accurred</string>
     <string name="invalid_credentials">Invalid Credentials</string>
@@ -33,11 +33,12 @@
     <string name="show_all">Show all</string>
     <string name="item_product_ratings_count">%d Ratings</string>
     <string name="fragment_item_product_discount">%d%% OFF</string>
-    <string name="erorr_loading">Erorr loading...</string>
+    <string name="erorr_loading">An erorr accurred.</string>
     <string name="retry">Retry</string>
     <string name="fragment_home_greeting">Hello, %s</string>
-    <string name="items_category_count">%d items</string>
+    <string name="item_category_count">%d items</string>
     <string name="price">$%.1f</string>
     <string name="price_striked"><strike>$%.1f</strike></string>
+    <string name="fragment_categories_title">Categories</string>
 
 </resources>

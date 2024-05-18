@@ -11,6 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.locmart.R
 import com.example.locmart.databinding.FragmentSignInBinding
+import com.example.locmart.util.clearLightStatusBar
 import com.example.locmart.util.toast
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -60,6 +61,7 @@ class SignInFragment :Fragment() {
     }
 
     private fun initUI() = with(binding){
+        clearLightStatusBar()
         signIn.setOnClickListener {
             val username = binding.username.text.toString()
             val password = binding.password.text.toString()

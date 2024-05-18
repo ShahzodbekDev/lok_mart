@@ -1,6 +1,7 @@
 package com.example.locmart.data.repo
 
 import com.example.locmart.data.api.product.ProductApi
+import com.example.locmart.data.api.product.dto.Category
 import com.example.locmart.data.api.product.dto.HomeResponse
 import com.example.locmart.data.store.UserStore
 import com.example.locmart.domain.repo.ProductRepository
@@ -15,4 +16,6 @@ class ProductRepositoryImpl @Inject constructor(
         userStore.set(response.user)
         return response
     }
+
+    override suspend fun getCategories() = productApi.getCategories()
 }

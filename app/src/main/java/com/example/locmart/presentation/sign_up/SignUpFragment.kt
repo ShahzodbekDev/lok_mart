@@ -19,6 +19,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.locmart.R
 import com.example.locmart.databinding.FragmentSignUpBinding
+import com.example.locmart.util.clearLightStatusBar
 import com.example.locmart.util.toast
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -72,6 +73,7 @@ class SignUpFragment : Fragment() {
     }
 
     private fun initUI() = with(binding) {
+        clearLightStatusBar()
         register.setOnClickListener {
             viewModel.signUp(
                 username.text.toString(), email.text.toString(), password.text.toString()

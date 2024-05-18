@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.example.locmart.R
 import com.example.locmart.databinding.FragmentOnboardingBinding
+import com.example.locmart.util.clearLightStatusBar
 import com.zhpan.indicator.enums.IndicatorSlideMode
 import com.zhpan.indicator.enums.IndicatorStyle
 import dagger.hilt.android.AndroidEntryPoint
@@ -36,6 +37,7 @@ class onBoardingFragment: Fragment() {
     }
 
     private fun initUI() = with(binding) {
+        clearLightStatusBar()
 
         pager.adapter = adapter
 

@@ -20,7 +20,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
-                android:layout_marginTop="64dp"
+                android:layout_marginTop="44dp"
                 android:fontFamily="@font/bold"
                 android:textColor="@color/dark"
                 android:textSize="22sp"
@@ -71,6 +71,7 @@
                 app:layout_constraintTop_toTopOf="@+id/avatarLayout" />
 
             <TextView
+                android:id="@+id/count"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="-7dp"
@@ -199,60 +200,15 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
-    <ProgressBar
-        android:id="@+id/progress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:indeterminate="true"
-        android:visibility="gone"
-        android:indeterminateTint="@color/orange"
-        android:indeterminateTintMode="src_atop"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/erorr"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/erorrText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/medium"
-            android:text="@string/erorr_loading"
-            android:textColor="@color/soft_gray"
-            android:textSize="22sp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/retry"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="32dp"
-            android:fontFamily="@font/semi_bold"
-            android:text="@string/retry"
-            android:textAllCaps="false"
-            android:textColor="@color/orange"
-            android:textSize="16sp"
-            app:layout_constraintTop_toBottomOf="@id/erorrText"
-            app:layout_constraintEnd_toEndOf="parent" />
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+  <include
+      android:id="@+id/loading"
+      layout="@layout/view_loading"/>
+
+    <include
+      android:id="@+id/error"
+      layout="@layout/view_error"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
