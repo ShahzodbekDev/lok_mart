@@ -22,7 +22,7 @@ class CategoriesFragment: Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentCategoriesBinding.inflate(inflater)
         return binding.root
     }
@@ -58,6 +58,6 @@ class CategoriesFragment: Fragment() {
     }
 
     private fun onCategoryClick(category: Category) {
-
+    findNavController().navigate(CategoriesFragmentDirections.toProductsFragment(category))
     }
 }

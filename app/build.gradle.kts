@@ -4,6 +4,7 @@ plugins {
     id ("org.jetbrains.kotlin.kapt")
     id("com.google.dagger.hilt.android")
     id("androidx.navigation.safeargs.kotlin")
+    id ("kotlin-parcelize")
 
 
 }
@@ -78,6 +79,9 @@ dependencies {
 
     //Glide
     implementation ("com.github.bumptech.glide:glide:4.16.0")
+
+    //Paging 3
+    implementation("androidx.paging:paging-runtime:3.3.0")
 
  
 

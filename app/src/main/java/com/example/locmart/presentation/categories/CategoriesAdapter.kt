@@ -23,7 +23,6 @@ class CategoriesAdapter(
             root.setOnClickListener {
                 onClick(category)
             }
-
         }
     }
 
