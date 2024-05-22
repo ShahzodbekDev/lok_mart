@@ -1,1 +1,1 @@
-<h1>LokMart shoping app</h1>
+<h1>LokMart app</h1>
