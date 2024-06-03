@@ -29,7 +29,7 @@ class AuthRepositoryImpl @Inject constructor(
       saveUserInfo(response)
 
     }
-
+    
     override suspend fun signUp(username: String, email: String, password: String) {
 
         val request = SignUpRequest(username, email, password)

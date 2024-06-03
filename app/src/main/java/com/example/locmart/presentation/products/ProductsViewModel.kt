@@ -36,8 +36,8 @@ class ProductsViewModel @Inject constructor(
         }
     }
 
-    fun setLoadState(state : CombinedLoadStates){
-        val loading = state.source.refresh is LoadState.Loading
+    fun setLoadState(states : CombinedLoadStates){
+        val loading = states.source.refresh is LoadState.Loading
         this.loading.postValue(loading)
     }
 

@@ -10,14 +10,21 @@ import com.example.locmart.data.api.product.dto.Category
 import com.example.locmart.data.api.product.dto.HomeResponse
 import com.example.locmart.data.api.product.dto.Product
 import com.example.locmart.data.api.product.paging.ProductPagingSource
+import com.example.locmart.data.store.SearchStore
 import com.example.locmart.data.store.UserStore
 import com.example.locmart.domain.model.ProductQuery
 import com.example.locmart.domain.repo.ProductRepository
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.filterNotNull
+import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 class ProductRepositoryImpl @Inject constructor(
     private val productApi: ProductApi,
+    private val searchStore: SearchStore,
     private val userStore: UserStore
+
+
 ) : ProductRepository {
     override suspend fun getHome(): HomeResponse {
        val response = productApi.getHome()
@@ -34,4 +41,6 @@ class ProductRepositoryImpl @Inject constructor(
         }
 
     ).liveData
+
+    override fun getRecentSearchs() = searchStore.getFlow().filterNotNull().map { it.toList() }
 }

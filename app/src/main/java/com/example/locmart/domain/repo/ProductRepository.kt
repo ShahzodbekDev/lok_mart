@@ -6,10 +6,13 @@ import com.example.locmart.data.api.product.dto.Category
 import com.example.locmart.data.api.product.dto.HomeResponse
 import com.example.locmart.data.api.product.dto.Product
 import com.example.locmart.domain.model.ProductQuery
+import kotlinx.coroutines.flow.Flow
 
 interface ProductRepository {
 
-    suspend fun getHome() : HomeResponse
-    suspend fun getCategories() : List<Category>
-     fun getProducts(query: ProductQuery) : LiveData<PagingData<Product>>
+    suspend fun getHome(): HomeResponse
+    suspend fun getCategories(): List<Category>
+    fun getProducts(query: ProductQuery): LiveData<PagingData<Product>>
+
+    fun getRecentSearchs() : Flow<List<String>>
 }
