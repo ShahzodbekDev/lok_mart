@@ -1,5 +1,6 @@
 package com.example.locmart.presentation.search
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -19,33 +20,38 @@ import javax.inject.Inject
 @HiltViewModel
 class SearchViewModel @Inject constructor(
     private val productRepository: ProductRepository
-):ViewModel(){
+) : ViewModel() {
+
 
     val loading = MutableLiveData(false)
-    val products = MediatorLiveData<PagingData<Product>>()
-    val query = MutableLiveData(ProductQuery())
-    val searches = MutableLiveData<List<String>>()
+    val products = MutableLiveData<PagingData<Product>>()
+    private val query = MutableLiveData(ProductQuery())
+    val recents = MutableLiveData<List<String>>()
 
-    init{
-        getRecentSearches()
+
+    init {
+        getRecents()
     }
 
 
-    private fun getProducts(){
-        val products = productRepository.getProducts(query.value!!)
-        this.products.addSource(products){
-           this.products.value = it
-            
+    private fun getProducts() = viewModelScope.launch {
+
+
+        productRepository.getProducts(query.value!!).collectLatest {
+
+            products.postValue(it)
+
         }
     }
 
-   fun setCategory(category: Category){
-       query.postValue(query.value!!.copy(category = category))
-       getProducts()
-   }
+    fun setCategory(category: Category) {
+        query.postValue(query.value!!.copy(category = category))
+        getProducts()
+    }
 
-    fun setSearch(search:String){
+    fun setSearch(search: String) {
         query.postValue(query.value!!.copy(search = search))
+        addRecent(search)
         getProducts()
     }
 
@@ -54,11 +60,19 @@ class SearchViewModel @Inject constructor(
         this.loading.postValue(loading)
     }
 
-    private fun getRecentSearches() = viewModelScope.launch {
-        productRepository.getRecentSearchs().collectLatest {
-            searches.postValue(it)
+    private fun getRecents() = viewModelScope.launch {
+        productRepository.getRecents().collectLatest {
+            recents.postValue(it)
 
         }
+    }
+
+    fun clearRecents() = viewModelScope.launch {
+        productRepository.clearRecents()
+    }
+
+    private fun addRecent(search: String) = viewModelScope.launch {
+        productRepository.addRecent(search)
     }
 
 

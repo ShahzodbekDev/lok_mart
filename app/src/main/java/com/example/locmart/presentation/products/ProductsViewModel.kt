@@ -3,6 +3,7 @@ package com.example.locmart.presentation.products
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import androidx.paging.CombinedLoadStates
 import androidx.paging.LoadState
 import androidx.paging.PagingData
@@ -11,6 +12,8 @@ import com.example.locmart.data.api.product.dto.Product
 import com.example.locmart.domain.model.ProductQuery
 import com.example.locmart.domain.repo.ProductRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -20,7 +23,7 @@ class ProductsViewModel @Inject constructor(
     ) : ViewModel() {
     val loading = MutableLiveData(false)
     val erorr = MutableLiveData(false)
-    val products = MediatorLiveData<PagingData<Product>>()
+    val products = MutableLiveData<PagingData<Product>>()
     val category = MutableLiveData<Category>()
 
     fun setCategory(category: Category) {
@@ -28,12 +31,12 @@ class ProductsViewModel @Inject constructor(
         getProducts()
     }
 
-    fun getProducts() {
+    fun getProducts() = viewModelScope.launch{
         val query = ProductQuery(category = category.value)
-        val products = productRepository.getProducts(query)
-        this.products.addSource(products) {
-            this.products.postValue(it)
+        productRepository.getProducts(query).collectLatest {
+            products.postValue(it)
         }
+
     }
 
     fun setLoadState(states : CombinedLoadStates){

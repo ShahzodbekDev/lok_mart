@@ -12,7 +12,11 @@ interface ProductRepository {
 
     suspend fun getHome(): HomeResponse
     suspend fun getCategories(): List<Category>
-    fun getProducts(query: ProductQuery): LiveData<PagingData<Product>>
+    fun getProducts(query: ProductQuery): Flow<PagingData<Product>>
 
-    fun getRecentSearchs() : Flow<List<String>>
+    fun getRecents(): Flow<List<String>>
+
+    suspend fun clearRecents()
+
+    suspend fun addRecent(search:String)
 }

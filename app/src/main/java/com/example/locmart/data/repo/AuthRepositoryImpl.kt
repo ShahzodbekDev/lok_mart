@@ -10,6 +10,7 @@ import com.example.locmart.domain.model.Destination
 import com.example.locmart.domain.repo.AuthRepository
 import kotlinx.coroutines.flow.channelFlow
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 import com.example.locmart.data.api.auth.dto.SignInResponse as AuthRespons
@@ -41,8 +42,8 @@ class AuthRepositoryImpl @Inject constructor(
 
        suspend fun sendDestination() {
             when{
-                tokenStore.get(true) !=null -> send(Destination.Home)
-                onboardedStore.get(true) == true -> send(Destination.Auth)
+                tokenStore.get() !=null -> send(Destination.Home)
+                onboardedStore.get() == true -> send(Destination.Auth)
                 else -> send(Destination.OnBoarding)
             }
         }
@@ -58,7 +59,7 @@ class AuthRepositoryImpl @Inject constructor(
                 sendDestination()
             }
         }
-    }
+    }.distinctUntilChanged()
 
     override suspend fun onboarded() = onboardedStore.set(true)
 

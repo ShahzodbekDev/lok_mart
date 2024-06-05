@@ -1,11 +1,10 @@
-package com.example.locmart.presentation.search
+package com.example.locmart.presentation.search.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import com.example.locmart.data.api.product.dto.Product
-import com.example.locmart.databinding.ItemProductBinding
 import com.example.locmart.databinding.ItemProductSearchBinding
 
 class SearchProductsAdapter(

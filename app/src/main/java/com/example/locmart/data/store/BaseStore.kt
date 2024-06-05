@@ -27,7 +27,7 @@ abstract class BaseStore<T>(
         }
     }
 
-    suspend fun get(b: Boolean) = getFlow().firstOrNull()
+    suspend fun get() = getFlow().firstOrNull()
     fun getFlow() = dataStore.data.map {
         val json = it[stringPreferencesKey(key)]
         try {
@@ -43,4 +43,6 @@ abstract class BaseStore<T>(
             it.remove(stringPreferencesKey(key))
         }
     }
+
+
 }

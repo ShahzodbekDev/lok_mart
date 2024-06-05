@@ -41,7 +41,7 @@
     <string name="price_striked"><strike>$%.1f</strike></string>
     <string name="fragment_categories_title">Categories</string>
     <string name="fragment_search_title">Search</string>
-    <string name="fragment_search_recent">Recent Search\n</string>
+    <string name="fragment_search_recent">Recent Search</string>
     <string name="clear_all">Clear All</string>
     <string name="fragment_search_result">Search Result</string>
 
