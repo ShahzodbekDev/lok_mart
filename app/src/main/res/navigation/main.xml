@@ -102,6 +102,10 @@
             app:argType="com.example.locmart.data.api.product.dto.Category"
             app:nullable="true" />
 
+        <action
+            android:id="@+id/to_filterFragment"
+            app:destination="@id/filterFragment"/>
+
     </fragment>
 
     <action
@@ -116,4 +120,15 @@
         android:id="@+id/to_homeFragment"
         app:destination="@+id/homeFragment"
         app:popUpTo="@id/main" />
+
+    <fragment
+        android:id="@+id/filterFragment"
+        tools:layout="@layout/fragment_filter"
+        android:name="com.example.locmart.presentation.filter.FilterFragment"
+        android:label="FilterFragment">
+
+        <argument
+            android:name="filter"
+            app:argType="com.example.locmart.domain.model.ProductQuery"/>
+    </fragment>
 </navigation>

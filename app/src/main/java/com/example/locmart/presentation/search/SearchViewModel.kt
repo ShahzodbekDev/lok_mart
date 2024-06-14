@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.CombinedLoadStates
 import androidx.paging.LoadState
 import androidx.paging.PagingData
+import androidx.paging.cachedIn
 import com.example.locmart.data.api.product.dto.Category
 import com.example.locmart.data.api.product.dto.Product
 import com.example.locmart.domain.model.ProductQuery
@@ -25,7 +26,7 @@ class SearchViewModel @Inject constructor(
 
     val loading = MutableLiveData(false)
     val products = MutableLiveData<PagingData<Product>>()
-    private val query = MutableLiveData(ProductQuery())
+    val query = MutableLiveData(ProductQuery())
     val recents = MutableLiveData<List<String>>()
 
 
@@ -37,7 +38,7 @@ class SearchViewModel @Inject constructor(
     private fun getProducts() = viewModelScope.launch {
 
 
-        productRepository.getProducts(query.value!!).collectLatest {
+        productRepository.getProducts(query.value!!).cachedIn(viewModelScope).collectLatest {
 
             products.postValue(it)
 
@@ -73,6 +74,11 @@ class SearchViewModel @Inject constructor(
 
     private fun addRecent(search: String) = viewModelScope.launch {
         productRepository.addRecent(search)
+    }
+
+    fun setQusery(query: ProductQuery){
+        this.query.value = query
+        getProducts()
     }
 
 

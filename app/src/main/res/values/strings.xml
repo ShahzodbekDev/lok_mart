@@ -44,5 +44,30 @@
     <string name="fragment_search_recent">Recent Search</string>
     <string name="clear_all">Clear All</string>
     <string name="fragment_search_result">Search Result</string>
+    <string name="fragment_filter_title">Filter Options</string>
+    <string name="fragment_filter_reset">Reset</string>
+    <string name="fragment_filter_range_title">sort by PRIce range</string>
+    <string name="fragment_filter_rating_title">Sort by Rating</string>
+    <string name="fragment_filter_one_two_stars">1-2 Stars</string>
+    <string name="fragment_filter_two_three_stars">2-3 Stars</string>
+    <string name="fragment_filter_three_four_stars">3-4 Stars</string>
+    <string name="fragment_filter_four_five_stars">4-5 Stars</string>
+    <string name="fragment_filter_discounts_title">Sort by discounts</string>
+    <string name="fragment_filter_10_20_discount">10-20%</string>
+    <string name="fragment_filter_25_50_discount">25-50%</string>
+    <string name="fragment_filter_50_70_discount">50-70%</string>
+    <string name="fragment_filter_70_above_discount">70% above</string>
+    <string name="fragment_filter_discount">Discount</string>
+    <string name="fragment_filter_others_title">Sort by others</string>
+    <string name="fragment_filter_free_shipping">Free Shipping</string>
+    <string name="fragment_filter_voucher">Voucher</string>
+    <string name="fragment_filter_same_day_deli">Same Day Deli.</string>
+    <string name="fragment_filter_categories_title">Sort by categories</string>
+    <string name="fragment_filter_fresh_fruits">Fresh Fruits</string>
+    <string name="fragment_filter_chicken">Chicken</string>
+    <string name="fragment_filter_fresh_fish">Fresh Fish</string>
+    <string name="fragment_filter_fresh_dairy">Fresh Dairy</string>
+    <string name="fragment_filter_categories_error">Error fatching categories</string>
+    <string name="fragment_filter_apply">Apply</string>
 
 </resources>

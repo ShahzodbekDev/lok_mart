@@ -8,6 +8,7 @@ import android.view.inputmethod.EditorInfo
 import android.widget.TextView.OnEditorActionListener
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -15,6 +16,9 @@ import androidx.navigation.fragment.navArgs
 import androidx.paging.PagingData
 import com.example.locmart.data.api.product.dto.Product
 import com.example.locmart.databinding.FragmentSeaarchBinding
+import com.example.locmart.domain.model.ProductQuery
+import com.example.locmart.presentation.filter.FilterFragment
+import com.example.locmart.presentation.search.SearchFragmentDirections.Companion.toFilterFragment
 import com.example.locmart.presentation.search.adapters.RecentsAdapter
 import com.example.locmart.presentation.search.adapters.SearchProductsAdapter
 import com.example.locmart.util.hideKeyboard
@@ -101,6 +105,18 @@ class SearchFragment : Fragment() {
             viewModel.clearRecents()
         }
 
+        searchContainer.filter.setOnClickListener {
+            val query = viewModel.query.value ?: ProductQuery()
+            findNavController().navigate(toFilterFragment(query))
+        }
+        setFragmentResultListener(FilterFragment.REQUEST_KEY){ _ , result ->
+            val query = result.getParcelable<ProductQuery>(FilterFragment.RESULT_KEY)
+            viewModel.setQusery(query ?: return@setFragmentResultListener )
+            searchContainer.search.clearFocus()
+            hideKeyboard()
+            isRecentsVisible(false)
+        }
+
     }
 
     private fun FragmentSeaarchBinding.isRecentsVisible(focused: Boolean) {
@@ -118,6 +134,7 @@ class SearchFragment : Fragment() {
     }
 
     private fun onRecentClick(recent: String) {
-
+        viewModel.setSearch(recent)
+        binding.searchContainer.search.setText(recent)
     }
 }
